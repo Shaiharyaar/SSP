@@ -53,7 +53,9 @@ function Signup() {
           }
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        alert("Username already exists");
+      });
   };
   return (
     <div className="container1">

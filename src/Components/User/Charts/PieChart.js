@@ -8,8 +8,6 @@ class TwitterPieChart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      series: [20, 15, 65],
-
       option: {
         labels: ["Neutral", "Happy", "Sad"],
         chart: {
@@ -35,7 +33,7 @@ class TwitterPieChart extends React.Component {
     return (
       <ReactApexChart
         options={this.state.option}
-        series={this.state.series}
+        series={this.props.ser}
         type="donut"
         height="90%"
       />

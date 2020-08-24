@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import AxiosInstance from "../Jwt";
+import axiosInstance from "../Jwt";
 
 function Login() {
   const [username, setusername] = useState("");
@@ -17,7 +17,8 @@ function Login() {
       username: username,
       password: password,
     };
-    await AxiosInstance.login(credentials)
+    await axiosInstance
+      .login(credentials)
       .then((res) => {
         console.log(res.body);
         if (res.status === 200) {
@@ -25,11 +26,11 @@ function Login() {
           console.log("Login Credentials :", res.data);
           history.push(path);
         } else {
-          console.log("login not successful, try again!");
+          alert("login not successful, try again!");
         }
         console.log(res);
       })
-      .catch((error) => console.error(error));
+      .catch((error) => alert("Invalid Username or Password"));
   };
   return (
     <div class="container1" onclick="onclick">

@@ -1,28 +1,11 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import TwitterLineChart from "../Charts/Linechart";
-import TwitterPieChart from "../Charts/PieChart";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
-import { FiTrendingUp } from "react-icons/fi";
+import TwitterLineChart from "./Charts/Linechart";
+import TwitterPieChart from "./Charts/PieChart";
 
 import CountUp from "react-countup";
-import { FaFacebook, FaHashtag } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
 import ProgressBar from "react-bootstrap/ProgressBar";
-
-import { makeStyles } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
 var options = {
   chart: {
     type: "line",
@@ -90,7 +73,8 @@ var options = {
     offsetX: -5,
   },
 };
-function FacebookComponent() {
+
+export default function Facebook(props) {
   const [happy, sethappy] = useState(15);
   const [sad, setSad] = useState(65);
   const [neutral, setNeutral] = useState(20);
@@ -99,60 +83,11 @@ function FacebookComponent() {
     "Here lies the latest Facebook content...."
   );
   const [fbDT, setfbDT] = useState("time and date");
-  const [open, setOpen] = React.useState(false);
-  const [location, setLocation] = React.useState("");
-  const [trend, setTrend] = React.useState("");
-  const classes = useStyles();
-  const videos = [];
-  const checkhash = (val) => {
-    if (val == "")
-      document.getElementById("free-solo-demo").style.borderColor = "#bbb";
-    else document.getElementById("free-solo-demo").style.borderColor = "blue";
-  };
   return (
-    <Container>
-      <Row style={{ marginTop: 30 }}>
+    <div>
+      <Row>
         <h3>Facebook Analysis </h3>
         <FaFacebook color="blue" size="2.2em" style={{ marginLeft: 10 }} />
-      </Row>
-      <Row style={{ marginTop: 10 }}>
-        <Col lg="8">
-          <Autocomplete
-            id="free-solo-demo"
-            freeSolo
-            options={videos.map((option) => option.title)}
-            renderInput={(params) => (
-              <TextField
-                {...params}
-                label="Enter an Facebook Page URL"
-                margin="normal"
-                variant="outlined"
-                onChange={(e) => {
-                  checkhash(e.target.value);
-                }}
-              />
-            )}
-          />
-        </Col>
-        <Col style={{ paddingTop: 10, borderRadius: 50 }}>
-          <FormControl style={{ width: 250 }} className={classes.formControl}>
-            <InputLabel htmlFor="grouped-select">Latest Posts</InputLabel>
-            <Select defaultValue="" id="grouped-select">
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={"#love"}>#love</MenuItem>
-              <MenuItem value={"#instagood"}>#instagood</MenuItem>
-              <MenuItem value={"#photooftheday"}>#photooftheday</MenuItem>
-              <MenuItem value={"#fashion"}>#fashion</MenuItem>
-            </Select>
-          </FormControl>
-        </Col>
-      </Row>
-      <LoadComponent />
-      <Row>
-        <h3>Facebook Page Analysis </h3>
-        <FiTrendingUp color="blue" size="2.2em" style={{ marginLeft: 10 }} />
       </Row>
       <Row class="Row">
         <Col
@@ -170,7 +105,7 @@ function FacebookComponent() {
               marginBottom: 20,
             }}
           >
-            Top Trending Data
+            Facebook Post Details
           </h3>
           <p>
             <br />
@@ -191,7 +126,7 @@ function FacebookComponent() {
                 value={FbContent}
                 className="form-control"
                 id="exampleFormControlTextarea1"
-                rows="5"
+                rows="2"
               />
             </div>
           </p>
@@ -257,24 +192,6 @@ function FacebookComponent() {
           <TwitterPieChart ser={[sad, neutral, happy]} />
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
-function LoadComponent(props) {
-  // if (props.check) {
-  //   return <YoutubeAnalysis url={props.url} />;
-  // } else {
-  return (
-    <Container>
-      <Col>
-        <Row>
-          <div className="emptyComp">
-            <h3>Your Search Result Will appear here</h3>
-          </div>{" "}
-        </Row>
-      </Col>
-    </Container>
-  );
-  // }
-}
-export default FacebookComponent;

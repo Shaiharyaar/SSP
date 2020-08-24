@@ -2,13 +2,13 @@ import React from "react";
 function HomePage() {
   return (
     <div className="body">
-      <header>
-        <div className="hero-text-box">
-          <h1>
-            Understand your audience feelings.
-            <br />
-            Sentimental Analysis.
-          </h1>
+      <header className="header">
+        <h1 className="heading">
+          Understand your audience feelings.
+          <br />
+          Sentimental Analysis.
+        </h1>
+        <div>
           <a className="btn btn-full js--scroll-to-plans" href="/login">
             Get Started
           </a>

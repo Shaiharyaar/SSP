@@ -7,6 +7,11 @@ import Signup from "../Components/Signup";
 import MainDashboard from "../Components/User/UserMain";
 import Dashboard from "../Components/User/dashboard";
 import AdminPage from "../Components/Admin/Admin";
+import YoutubeComponent from "../Components/User/Components/YoutubeComponent";
+import FacebookComponent from "../Components/User/Components/FacebookComponent";
+import InstagramComponent from "../Components/User/Components/InstagramComponent";
+import TwitterComponent from "../Components/User/Components/TwitterComponent";
+
 const BaseRouter = () => (
   <Switch>
     <Route exact path="/">
@@ -24,6 +29,18 @@ const BaseRouter = () => (
       </Route>
       <Route exact path="/userProfile">
         <Profile />
+      </Route>
+      <Route exact path="/twitter">
+        <TwitterComponent />
+      </Route>
+      <Route exact path="/youtube">
+        <YoutubeComponent />
+      </Route>
+      <Route exact path="/instagram">
+        <InstagramComponent />
+      </Route>
+      <Route exact path="/facebook">
+        <FacebookComponent />
       </Route>
     </MainDashboard>
     <Route exact path="/adminPage">

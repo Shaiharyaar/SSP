@@ -7,7 +7,6 @@ import axiosInstance from "../../Jwt";
 
 function UserPage(props) {
   const data = JSON.parse(localStorage.getItem("UserInfo"));
-  console.log(data.User.image);
   const history = useHistory();
   // if (data) {
   //   history.push("/login");
@@ -49,7 +48,7 @@ function UserPage(props) {
           </li>
           <div className="dropdown">
             <li>
-              <NavLink to="/userProfile">
+              <NavLink to="/twitter">
                 <a>
                   <i className="fa fa-bar-chart-o fa-2x"></i>
                   <span className="nav-text">Graphs {"&"} Statistics </span>
@@ -58,7 +57,7 @@ function UserPage(props) {
             </li>
             <div className="dropdown-content">
               <li className="has-subnav">
-                <NavLink to="/userProfile">
+                <NavLink to="/twitter">
                   <a>
                     <i className="fa fa-twitter fa-2x" />
                     <span className="nav-text"> Twitter Charts</span>
@@ -66,7 +65,7 @@ function UserPage(props) {
                 </NavLink>
               </li>
               <li className="has-subnav">
-                <NavLink to="/userProfile">
+                <NavLink to="/facebook">
                   <a>
                     <i className="fa fa-facebook fa-2x" />
                     <span className="nav-text">Facebook Charts</span>
@@ -74,15 +73,15 @@ function UserPage(props) {
                 </NavLink>
               </li>
               <li className="has-subnav">
-                <NavLink to="/userProfile">
+                <NavLink to="/youtube">
                   <a>
                     <i className="fa fa-youtube fa-2x" />
-                    <span className="nav-text"> youtube Charts</span>
+                    <span className="nav-text"> Youtube Charts</span>
                   </a>
                 </NavLink>
               </li>
               <li className="has-subnav">
-                <NavLink to="/userProfile">
+                <NavLink to="/instagram">
                   <a>
                     <i className="fa fa-instagram fa-2x" />
                     <span className="nav-text"> Instagram Charts</span>

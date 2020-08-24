@@ -23,6 +23,10 @@ class axiosInstance {
     return true;
   }
 
+  authenticate() {
+    const data = JSON.parse(localStorage.getItem("UserInfo"));
+    return Axios.get(USER_API_BASE_URL + "users/authenticate", data);
+  }
   // getUserProducts() {
   //   return axios.get(
   //     USER_API_BASE_URL +
